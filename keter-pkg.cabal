@@ -1,0 +1,37 @@
+name:            keter-pkg
+version:         0.1.0.0
+license:         MIT
+license-file:    LICENSE
+author:          Christopher Reichert <creichert07@gmail.com>
+maintainer:      Chrisotpher Reichert <creichert07@gmail.com>
+synopsis:        A package builder for the Keter web server
+description:     A package builder for the Keter web server
+category:        Web
+stability:       Stable
+cabal-version:   >= 1.6
+build-type:      Simple
+extra-source-files: ChangeLog.md
+
+source-repository head
+  type:     git
+  location: https://github.com/creichert/keter-pkg
+
+
+executable keter-pkg
+
+    main-is:       Main.hs
+    ghc-options:   -Wall -threaded -rtsopts
+    other-modules: Keter.Options
+                   Keter.Pkg
+    build-depends: base == 4.*
+                 , optparse-applicative
+                 , directory          >= 1.2.1
+                 , filepath           >= 1.1
+                 , process
+                 , zlib               >= 0.5
+                 , tar                >= 0.4          && < 0.5
+                 , yaml               >= 0.8          && < 0.9
+                 , bytestring         >= 0.9.1.4
+                 , text               >= 0.11
+                 , transformers
+                 , unordered-containers
