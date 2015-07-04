@@ -10,7 +10,7 @@ category:        Web
 stability:       Stable
 cabal-version:   >= 1.6
 build-type:      Simple
-extra-source-files: ChangeLog.md
+extra-source-files: ChangeLog
 
 source-repository head
   type:     git
