@@ -17,7 +17,6 @@ data KeterPkgOpts = KeterPkgOpts
     keterCfg :: !(Maybe FilePath)
   , quiet    :: !Bool
   , copyTo   :: !Bool
-  , noBuild  :: !Bool
   }
 
 
@@ -36,6 +35,3 @@ keterPkgOpts =
   <*> switch
       ( long "no-copy"
      <> help "Don't copy the resulting keter bundle to destination using `scp`" )
-  <*> switch
-      ( long "no-build"
-     <> help "Completely rebuild any source packages" )

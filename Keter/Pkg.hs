@@ -33,8 +33,8 @@ import           Keter.Options
 
 
 keterPkg :: KeterPkgOpts-> IO ()
-keterPkg (KeterPkgOpts kcfg _ copyto nobuild) = do
-  keter "cabal" kcfg copyto nobuild
+keterPkg (KeterPkgOpts kcfg _ copyto) = do
+  keter kcfg copyto
 
 
 run :: String -> [String] -> IO ()
@@ -47,12 +47,10 @@ try' :: IO a -> IO (Either SomeException a)
 try' = try
 
 
-keter :: String           -- ^ cabal command
-      -> Maybe FilePath -- ^ Keter config file
-      -> Bool             -- ^ no build?
+keter :: Maybe FilePath -- ^ Keter config file
       -> Bool             -- ^ no copy to?
       -> IO ()
-keter cabal mkcfg noBuild noCopyTo = do
+keter mkcfg noCopyTo = do
     ketercfg <- fromMaybe <$> keterConfig <*> pure mkcfg
     mvalue <- decodeFile ketercfg
     value <-
@@ -95,11 +93,6 @@ keter cabal mkcfg noBuild noCopyTo = do
         collapse' (".":xs) = collapse' xs
         collapse' (x:xs) = x : collapse' xs
         collapse' [] = []
-
-    unless noBuild $ do
-        run cabal ["clean"]
-        run cabal ["configure"]
-        run cabal ["build"]
 
     _ <- try' $ removeDirectoryRecursive "static/tmp"
 
