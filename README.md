@@ -1,8 +1,11 @@
 
+
 # Command-line Keter Bundle Creator
 
-    cd project
+![TravisCI](https://travis-ci.org/creichert/keter-pkg.svg)
+
+
+## Usage
+
+    cd webapp/
     keter-pkg
-
-## Work in-progress
-
