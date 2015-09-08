@@ -13,23 +13,25 @@ module Keter.Pkg
     ) where
 
 import qualified Codec.Archive.Tar          as Tar
-import           Codec.Compression.GZip     (compress)
-import           Control.Applicative
-import           Control.Exception
-import           Control.Monad
-import           Control.Monad.Trans.Writer (execWriter, tell)
 import qualified Data.ByteString.Lazy       as L
 import qualified Data.Foldable              as Fold
 import qualified Data.HashMap.Strict        as Map
-import           Data.Maybe
 import qualified Data.Text                  as T
-import           Data.Yaml
-import           System.Directory           hiding (findFiles)
-import           System.Exit
-import           System.FilePath            ((</>))
-import           System.Process
 
-import           Keter.Options
+
+import Control.Applicative
+import Codec.Compression.GZip     (compress)
+import Control.Exception
+import Control.Monad
+import Control.Monad.Trans.Writer (execWriter, tell)
+import Data.Maybe
+import Data.Yaml
+import System.Directory           hiding (findFiles)
+import System.Exit
+import System.FilePath            ((</>))
+import System.Process
+
+import Keter.Options
 
 
 keterPkg :: KeterPkgOpts-> IO ()
