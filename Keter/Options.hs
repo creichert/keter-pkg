@@ -5,8 +5,9 @@ module Keter.Options
        , keterPkgOpts
        ) where
 
+import Control.Applicative
+import Data.Monoid
 import Options.Applicative
-
 
 data KeterPkgOpts = KeterPkgOpts
   {
@@ -18,7 +19,6 @@ data KeterPkgOpts = KeterPkgOpts
   , quiet    :: !Bool
   , copyTo   :: !Bool
   }
-
 
 -- | keter-pkg options parser
 keterPkgOpts :: Parser KeterPkgOpts
