@@ -2,7 +2,8 @@
 
 # Command-line Keter Bundle Creator
 
-![TravisCI](https://travis-ci.org/creichert/keter-pkg)
+[![TravisCI](https://travis-ci.org/creichert/keter-pkg.svg?branch=master)](https://travis-ci.org/creichert/keter-pkg.el)
+
 
 This project is a replacement for the `yesod keter` command and
 supports creating keter bundles from Haskell source code. Currently,
