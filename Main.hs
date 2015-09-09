@@ -5,9 +5,6 @@ import Options.Applicative
 import Keter.Pkg
 import Keter.Options
 
-
-
-
 main :: IO ()
 main = execParser opts
        >>= keterPkg

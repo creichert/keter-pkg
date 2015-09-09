@@ -18,7 +18,6 @@ import qualified Data.Foldable              as Fold
 import qualified Data.HashMap.Strict        as Map
 import qualified Data.Text                  as T
 
-
 import Control.Applicative
 import Codec.Compression.GZip     (compress)
 import Control.Exception
@@ -33,24 +32,20 @@ import System.Process
 
 import Keter.Options
 
-
 keterPkg :: KeterPkgOpts-> IO ()
 keterPkg (KeterPkgOpts kcfg _ copyto) = do
   keter kcfg copyto
-
 
 run :: String -> [String] -> IO ()
 run a b = do
     ec <- rawSystem a b
     unless (ec == ExitSuccess) $ exitWith ec
 
-
 try' :: IO a -> IO (Either SomeException a)
 try' = try
 
-
 keter :: Maybe FilePath -- ^ Keter config file
-      -> Bool             -- ^ no copy to?
+      -> Bool           -- ^ no copy to?
       -> IO ()
 keter mkcfg noCopyTo = do
     ketercfg <- fromMaybe <$> keterConfig <*> pure mkcfg
